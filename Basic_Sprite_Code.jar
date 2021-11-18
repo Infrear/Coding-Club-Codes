@@ -1,0 +1,17 @@
+String image = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/dd/Slime_JE3_BE2.png/revision/latest?cb=20191230025505";
+String ballImage = "https://lh3.googleusercontent.com/proxy/zaTUuSBTP6zy5oSnbWvd6bUu_U_L6Rj5QBn0zyvWgPC4eh9066vmeOMpMYSkWWHOoN1lltUK1KnCK6kaLQGaSvHMeXB8SLw";
+
+Sprite s = new Sprite(image, 250, 350, 50, 50);
+Sprite ball = new Sprite(ballImage, 100, 100, 30, 30);
+
+ void setup() {
+   size(500, 400);
+ }//Runs once
+
+ void draw() { // Default framerate 60
+    background(0);
+     s.display();//making your sprite VISIBLE
+     ball.display();
+ }//Runs
+ 
+ 
