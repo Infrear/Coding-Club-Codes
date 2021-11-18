@@ -1,0 +1,77 @@
+String image = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/dd/Slime_JE3_BE2.png/revision/latest?cb=20191230025505";
+
+Sprite s = new Sprite(image, 250, 350, 50, 50);
+boolean up = false;
+boolean down = false;
+boolean left = false;
+boolean right = false;
+float speed = 5;
+
+void checkmouses(){
+    if (up == true){
+         s.moveY(-speed);
+     }
+     if (down == true){
+         s.moveY(speed);
+     }
+     if (left == true){
+         s.moveX(-speed);
+     }
+     if (right == true){
+         s.moveX(speed);
+     }
+}
+
+ void setup() {
+   size(500, 400);
+ }//Runs once
+
+ void draw() { // Default framerate 60
+    background(0);
+     checkmouses();
+     if (s.getY() >= height) {
+         s.setY(0);
+     }
+     if (s.getX() >= width) {
+         s.setX(width);
+     }
+     if (s.getX() <= 0) {
+         s.setX(0);
+     }
+     if (ball.getY() >= height) {
+         ball.setCoor(random(1, width), 0);
+     }
+     s.display();//making your sprite VISIBLE
+ }//Runs
+ 
+ 
+void keyPressed() {
+    if (key == 'w') {
+        up = true;
+    }
+    if (key == 's') {
+        down = true;
+    }
+    if (key == 'a') {
+        left = true;
+    }
+    if (key == 'd') {
+        right = true;
+    }
+}
+
+void keyReleased() {
+    if (key == 'w') {
+        up = false;
+    }
+    if (key == 's') {
+        down = false;
+    }
+    if (key == 'a') {
+        left = false;
+    }
+    if (key == 'd') {
+        right = false;
+    }
+}
+
