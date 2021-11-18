@@ -6,12 +6,12 @@ Sprite ball = new Sprite(ballImage, 100, 100, 30, 30);
 
  void setup() {
    size(500, 400);
- }//Runs once
+ } // Runs once
 
  void draw() { // Default framerate 60
     background(0);
      s.display();//making your sprite VISIBLE
      ball.display();
- }//Runs
+ } // Runs every 60th of a second
  
  
