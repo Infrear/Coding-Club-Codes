@@ -1,0 +1,60 @@
+String image = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/dd/Slime_JE3_BE2.png/revision/latest?cb=20191230025505";
+
+String bombImage = "http://clipart-library.com/images_k/explosion-clipart-transparent/explosion-clipart-transparent-18.png";
+
+
+Sprite bomb = new Sprite(bombImage, 250, 50, 25, 25);
+Sprite mySprite = new Sprite(image, 250, 350, 150, 150);
+boolean left = false;
+boolean right = false;
+int size = 90;
+int speed = 5;
+
+ void checkIfOffScreen() {
+     if (bomb.getY() > height) {//check if bomb height is greater than screen height, (downwards)
+        bomb.setCoor(random(1, width), 50);//choose a random x between 1 and the width, and set the y back to 50
+     }
+ }
+
+ void setup() {
+   size(500, 400);
+ }//Runs once
+
+ void draw() { // Default framerate 60
+    // println("right is " + right);
+    // println("left is " + left);
+    if (left == true) {
+        mySprite.moveX(-speed);
+    }
+    if (right == true) {
+        mySprite.moveX(speed);
+    }
+    background(100, 230, 100);
+    bomb.display();
+    mySprite.display();//making your sprite VISIBLE
+    bomb.moveY(20);//move the bomb downwards at all times
+    checkIfOffScreen();//make sure bomb isn't on screen, if it is then refer to line 11
+ }//Runs every 60th of a second, (frame)
+ 
+ void keyPressed() {
+    println(key + " key was pressed!");
+    // - key = key pressed
+    if (key == 'a') {
+        left = true;
+    }
+    if (key == 'd') {
+        right = true;
+    }
+ }
+ 
+ 
+ void keyReleased() {
+    // - key = key pressed
+    if (key == 'a') {
+        left = false;
+    }
+    if (key == 'd') {
+        right = false;
+    }
+ }
+ 
